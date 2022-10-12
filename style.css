@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Hind');
+
+:root {
+    --radius-1: 70%;
+    --radius-2: 30%;
+    --radius-3: 30%;
+    --radius-4: 70%;
+    --radius-5: 60%;
+    --radius-6: 40%;
+    --radius-7: 60%;
+    --radius-8: 40%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: #1f1f1f;
+}
+
+.blob {
+    width: 400px;
+    height: 400px;
+    background: rgb(255,0,236);
+    background: linear-gradient(90deg, rgba(255,0,236,1) 0%, rgba(171,0,255,1) 33%, rgba(4,0,255,1) 100%);
+    border-radius: var(--radius-1) var(--radius-2) var(--radius-3) var(--radius-4) / var(--radius-5) var(--radius-6) var(--radius-7) var(--radius-8);
+}
+
+.values > .code {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, .8);
+    padding: 10px;
+    color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    font-size: 16px;
+    font-style: italic;
+}
