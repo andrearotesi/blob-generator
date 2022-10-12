@@ -1,3 +1,6 @@
+/**
+ * Collection of border range inputs
+ */
 let borderInputs = [];
 document.querySelectorAll("input[type=range]").forEach((range) => {
   if (!(range.id == "width" || range.id == "height")) {
@@ -5,9 +8,13 @@ document.querySelectorAll("input[type=range]").forEach((range) => {
   }
 });
 
-const code = document.querySelector(".code");
-const height = document.querySelector(".height");
-const width = document.querySelector(".width");
+/**
+ * Generated CSS on page
+ */
+const bordersCopy = document.querySelector(".code");
+const heightCopy = document.querySelector(".height");
+const widthCopy = document.querySelector(".width");
+
 let root = window.getComputedStyle(document.documentElement);
 let rotation = 0;
 
@@ -25,25 +32,25 @@ let radius = [
   root.getPropertyValue("--radius-8")
 ];
 
-code.innerHTML = "border-radius: " + radius.join(' ') + ";";
+updateText('borders')
 borderInputs.forEach((input, index) => {
   input.addEventListener("input", (e) => {
     updateRadius(input, index, e.target.value);
   });
 });
 
-height.innerHTML = "height: " + root.getPropertyValue("--height");
+updateText('height');
 heightInput.addEventListener("input", (e) => {
   document.documentElement.style.setProperty("--height", e.target.value + 'px');
   heightInput.setAttribute("data-value", e.target.value + "px");
-  height.innerHTML = "height: " + root.getPropertyValue("--height");
+  updateText('height');
 });
 
-width.innerHTML = "width: " + root.getPropertyValue("--width");
+updateText('width');
 widthInput.addEventListener("input", (e) => {
   document.documentElement.style.setProperty("--width", e.target.value + 'px');
   widthInput.setAttribute("data-value", e.target.value + "px");
-  width.innerHTML = "width: " + root.getPropertyValue("--width");
+  updateText('width');
 });
 
 /**
@@ -71,7 +78,7 @@ function randomizeBlob() {
   } else {
     radius[index] = value + "%";
   }
-  code.innerHTML = "border-radius: " + radius.join(' ') + ";";
+  updateText('borders');
 }
 
 /**
@@ -90,4 +97,18 @@ function handleRotation() {
  */
 function getRandomValue() {
   return Math.floor(Math.random() * (90 - 20) + 20);
+}
+
+function updateText(type) {
+  switch(type) {
+    case 'width':
+      widthCopy.innerHTML = "width: " + root.getPropertyValue("--width");
+      break;
+    case 'height':
+      heightCopy.innerHTML = "height: " + root.getPropertyValue("--height");
+      break;
+    case 'borders':
+      bordersCopy.innerHTML = "border-radius: " + radius.join(' ') + ";";
+      break;
+  }
 }
