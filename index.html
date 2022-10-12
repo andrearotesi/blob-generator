@@ -9,16 +9,17 @@
     <title>Blob Generator</title>
 </head>
 <body>
-    <h1>BLOB GENERATOR</h1>
+    <h1>blob generator</h1>
 
     <section class="content">
         <div class="blob"></div>
 
-        <span class="material-symbols-outlined" onclick="randomizeBlob()">
+        <span id="casino" class="material-symbols-outlined" onclick="randomizeBlob()">
             casino
         </span>
             
         <div class="values">
+            <h3>borders:</h3>
             <input type="range" id="radius1" min="0" max="100" step="1" value="70" data-value="70%">
             <input type="range" id="radius2" min="0" max="100" step="1" value="30" data-value="30%">
             <input type="range" id="radius3" min="0" max="100" step="1" value="30" data-value="30%">
@@ -30,7 +31,9 @@
         </div>
     </section>
 
-    <div class="code"></div>
+    <div class="code-wrapper">
+        .blob {<div class="code"></div>}
+    </div>
 
     <script src="main.js"></script>
 </body>

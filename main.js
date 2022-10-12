@@ -1,6 +1,7 @@
 const rangeInputs = document.querySelectorAll("input[type=range]");
 const code = document.querySelector(".code");
 let root = window.getComputedStyle(document.documentElement);
+let rotation = 0;
 
 let radius = [
   root.getPropertyValue("--radius-1"),
@@ -35,15 +36,30 @@ function updateRadius(input, index, value) {
  * Updates all inputs with a random value
  */
 function randomizeBlob() {
+  handleRotation();
   rangeInputs.forEach((input, index) => {
     updateRadius(input, index, getRandomValue());
   });
 }
 
+function handleRotation() {
+  const casino = document.getElementById('casino');
+
+  if (rotation == 180) {
+    rotation = 0;
+  } else {
+    rotation = 180;
+  }
+
+  casino.style.transform = `rotate(${rotation}deg)`;
+  casino.style.transition = '.5s ease';
+}
+
 /**
- * Generates a random integer between 1 and 100
+ * Generates a random integer between 20 and 90, ideal
+ * values to maintaine a somewhat organic shape
  * @returns integer
  */
 function getRandomValue() {
-  return Math.floor(Math.random() * (100 - 1));
+  return Math.floor(Math.random() * (90 - 20) + 20);
 }

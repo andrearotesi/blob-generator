@@ -1,3 +1,5 @@
+@import './typography.css';
+
 :root {
     --radius-1: 70%;
     --radius-2: 30%;
@@ -7,12 +9,6 @@
     --radius-6: 40%;
     --radius-7: 60%;
     --radius-8: 40%;
-}
-
-.material-symbols-outlined {
-    cursor: pointer;
-    font-size: 50px!important;
-    padding: 1em;
 }
 
 html, body {
@@ -45,13 +41,16 @@ h1 {
     border-radius: var(--radius-1) var(--radius-2) var(--radius-3) var(--radius-4) / var(--radius-5) var(--radius-6) var(--radius-7) var(--radius-8);
 }
 
-.code {
-    text-align: center;
+.code-wrapper {
+    margin: 0 27% 0 27%;
+    padding: 1.5em;
+    background-color: #3e3e3e;
+    font-size: 30px;
 }
 
 .code {
-    margin-top: 20px;
     padding: 10px;
+    text-align: center;
     color: #ffffff;
     font-size: 30px;
 }

@@ -1,0 +1,14 @@
+.material-symbols-outlined {
+    cursor: pointer;
+    font-size: 50px!important;
+    margin: .5em;
+}
+
+input {
+    cursor: pointer;
+}
+
+html {
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff
+}
