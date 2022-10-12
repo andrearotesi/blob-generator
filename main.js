@@ -42,17 +42,13 @@ function randomizeBlob() {
   });
 }
 
+/**
+ * Calculates and applies a rotation to the randomize icon
+ */
 function handleRotation() {
-  const casino = document.getElementById('casino');
-
-  if (rotation == 180) {
-    rotation = 0;
-  } else {
-    rotation = 180;
-  }
-
-  casino.style.transform = `rotate(${rotation}deg)`;
-  casino.style.transition = '.5s ease';
+  rotation ? rotation = 0 : rotation = 180;
+  document.getElementById('casino').style.transform = `rotate(${rotation}deg)`;
+  document.getElementById('casino').style.transition = '.5s ease';
 }
 
 /**
