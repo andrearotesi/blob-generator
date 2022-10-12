@@ -5,23 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Blob Generator</title>
 </head>
 <body>
-    <h1>blob generator</h1>
-    
-    <div class="blob"></div>
-    
-    <div class="values">
-        <input type="range" id="radius1" min="0" max="100" step="1" value="70" data-value="70%">
-        <input type="range" id="radius2" min="0" max="100" step="1" value="30" data-value="30%">
-        <input type="range" id="radius3" min="0" max="100" step="1" value="30" data-value="30%">
-        <input type="range" id="radius4" min="0" max="100" step="1" value="70" data-value="70%">
-        <input type="range" id="radius5" min="0" max="100" step="1" value="60" data-value="60%">
-        <input type="range" id="radius6" min="0" max="100" step="1" value="40" data-value="40%">
-        <input type="range" id="radius7" min="0" max="100" step="1" value="60" data-value="60%">
-        <input type="range" id="radius8" min="0" max="100" step="1" value="40" data-value="40%">
-    </div>
+    <h1>BLOB GENERATOR</h1>
+
+    <section class="content">
+        <div class="blob"></div>
+
+        <span class="material-symbols-outlined" onclick="randomizeBlob()">
+            casino
+        </span>
+            
+        <div class="values">
+            <input type="range" id="radius1" min="0" max="100" step="1" value="70" data-value="70%">
+            <input type="range" id="radius2" min="0" max="100" step="1" value="30" data-value="30%">
+            <input type="range" id="radius3" min="0" max="100" step="1" value="30" data-value="30%">
+            <input type="range" id="radius4" min="0" max="100" step="1" value="70" data-value="70%">
+            <input type="range" id="radius5" min="0" max="100" step="1" value="60" data-value="60%">
+            <input type="range" id="radius6" min="0" max="100" step="1" value="40" data-value="40%">
+            <input type="range" id="radius7" min="0" max="100" step="1" value="60" data-value="60%">
+            <input type="range" id="radius8" min="0" max="100" step="1" value="40" data-value="40%">
+        </div>
+    </section>
 
     <div class="code"></div>
 
