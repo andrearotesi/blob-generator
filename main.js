@@ -1,7 +1,18 @@
-const rangeInputs = document.querySelectorAll("input[type=range]");
+let borderInputs = [];
+document.querySelectorAll("input[type=range]").forEach((range) => {
+  if (!(range.id == "width" || range.id == "height")) {
+    borderInputs.push(range);
+  }
+});
+
 const code = document.querySelector(".code");
+const height = document.querySelector(".height");
+const width = document.querySelector(".width");
 let root = window.getComputedStyle(document.documentElement);
 let rotation = 0;
+
+let heightInput = document.getElementById('height');
+let widthInput = document.getElementById('width');
 
 let radius = [
   root.getPropertyValue("--radius-1"),
@@ -15,10 +26,24 @@ let radius = [
 ];
 
 code.innerHTML = "border-radius: " + radius.join(' ') + ";";
-rangeInputs.forEach((input, index) => {
+borderInputs.forEach((input, index) => {
   input.addEventListener("input", (e) => {
     updateRadius(input, index, e.target.value);
   });
+});
+
+height.innerHTML = "height: " + root.getPropertyValue("--height");
+heightInput.addEventListener("input", (e) => {
+  document.documentElement.style.setProperty("--height", e.target.value + 'px');
+  heightInput.setAttribute("data-value", e.target.value + "px");
+  height.innerHTML = "height: " + root.getPropertyValue("--height");
+});
+
+width.innerHTML = "width: " + root.getPropertyValue("--width");
+widthInput.addEventListener("input", (e) => {
+  document.documentElement.style.setProperty("--width", e.target.value + 'px');
+  widthInput.setAttribute("data-value", e.target.value + "px");
+  width.innerHTML = "width: " + root.getPropertyValue("--width");
 });
 
 /**
@@ -26,7 +51,7 @@ rangeInputs.forEach((input, index) => {
  */
 function randomizeBlob() {
   handleRotation();
-  rangeInputs.forEach((input, index) => {
+  borderInputs.forEach((input, index) => {
     input.value = getRandomValue();
     updateRadius(input, index, input.value);
   });

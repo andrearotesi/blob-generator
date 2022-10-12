@@ -19,6 +19,11 @@
         </span>
             
         <div class="values">
+            <h3>width:</h3>
+            <input type="range" id="width" min="100" max="500" step="10" value="400" data-value="400px">
+            <h3>height:</h3>
+            <input type="range" id="height" min="100" max="500" step="10" value="300" data-value="300px">
+
             <h3>borders:</h3>
             <input type="range" id="radius1" min="0" max="100" step="1" value="70" data-value="70%">
             <input type="range" id="radius2" min="0" max="100" step="1" value="30" data-value="30%">
@@ -32,7 +37,11 @@
     </section>
 
     <div class="code-wrapper">
-        .blob {<div class="code"></div>}
+        .blob {
+            <div class="code"></div>
+            <div class="height"></div>
+            <div class="width"></div>
+        }
     </div>
 
     <script src="main.js"></script>

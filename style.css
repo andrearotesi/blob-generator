@@ -1,6 +1,8 @@
 @import './typography.css';
 
 :root {
+    --width: 400px;
+    --height: 300px;
     --radius-1: 70%;
     --radius-2: 30%;
     --radius-3: 30%;
@@ -35,8 +37,8 @@ h1 {
 
 .blob {
     margin: 5em;
-    width: 400px;
-    height: 300px;
+    width: var(--width);
+    height: var(--height);
     background: linear-gradient(90deg, rgba(255,0,236,1), rgb(106, 0, 255));
     border-radius: var(--radius-1) var(--radius-2) var(--radius-3) var(--radius-4) / var(--radius-5) var(--radius-6) var(--radius-7) var(--radius-8);
 }
@@ -49,9 +51,8 @@ h1 {
     font-size: 30px;
 }
 
-.code {
-    padding: 10px;
-    text-align: center;
-    color: #ffffff;
+.code, .height, .width {
+    padding-left: 2em;
+    text-align: left;
     font-size: 30px;
 }
