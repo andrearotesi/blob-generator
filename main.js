@@ -15,13 +15,30 @@ let radius = [
 ];
 
 code.innerHTML = "border-radius: " + radius.join(' ') + ";";
-rangeInputs.forEach((el, index) => {
-  el.addEventListener("input", (e) => {
-    updateRadius(el, index, e.target.value);
+rangeInputs.forEach((input, index) => {
+  input.addEventListener("input", (e) => {
+    updateRadius(input, index, e.target.value);
   });
 });
 
-function updateRadius(input, index, value) {
+/**
+ * Updates all inputs with a random value
+ */
+function randomizeBlob() {
+  handleRotation();
+  rangeInputs.forEach((input, index) => {
+    input.value = getRandomValue();
+    updateRadius(input, index, input.value);
+  });
+}
+
+/**
+ * Updates border radiuses and refreshes the code
+ * @param input actual slider
+ * @param index index of the slider
+ * @param value slider value
+ */
+ function updateRadius(input, index, value) {
   document.documentElement.style.setProperty("--radius-" + (index + 1), value + "%");
   input.setAttribute("data-value", value + "%");
   if (index === 4) {
@@ -30,16 +47,6 @@ function updateRadius(input, index, value) {
     radius[index] = value + "%";
   }
   code.innerHTML = "border-radius: " + radius.join(' ') + ";";
-}
-
-/**
- * Updates all inputs with a random value
- */
-function randomizeBlob() {
-  handleRotation();
-  rangeInputs.forEach((input, index) => {
-    updateRadius(input, index, getRandomValue());
-  });
 }
 
 /**
@@ -53,7 +60,7 @@ function handleRotation() {
 
 /**
  * Generates a random integer between 20 and 90, ideal
- * values to maintaine a somewhat organic shape
+ * values to maintain a somewhat organic shape
  * @returns integer
  */
 function getRandomValue() {
