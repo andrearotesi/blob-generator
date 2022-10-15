@@ -53,12 +53,13 @@ widthInput.addEventListener("input", (e) => {
   updateText('width');
 });
 
+document.getElementById("blob").style.transition = '.75s ease';
+
 /**
  * Updates all inputs with a random value
  */
 function randomizeBlob() {
   handleRotation();
-  document.getElementById("blob").style.transition = '.75s ease';
   borderInputs.forEach((input, index) => {
     input.value = getRandomValue();
     updateRadius(input, index, input.value);
