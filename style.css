@@ -29,11 +29,15 @@ h1 {
     font-size: 40px;
 }
 
-.content {
+.parent {
     display: grid;
-    place-items: center;
-    margin: 5em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
 }
+
+.blob-wrapper { grid-area: 1 / 1 / 2 / 2; }
+.inputs-wrapper { grid-area: 1 / 2 / 2 / 3; }
 
 .blob {
     margin: 5em;
@@ -44,15 +48,10 @@ h1 {
 }
 
 .code-wrapper {
+    margin-right: 25%;
     border-radius: 5px;
-    margin: 0 27% 0 27%;
-    padding: 1.5em;
+    padding: .5em;
     background-color: #3e3e3e;
-    font-size: 30px;
+    font-size: 15px;
 }
 
-.code, .height, .width {
-    padding-left: 2em;
-    text-align: left;
-    font-size: 30px;
-}
