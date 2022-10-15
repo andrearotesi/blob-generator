@@ -14,7 +14,7 @@
 }
 
 html, body {
-    height: 100%;
+    height: auto;
     margin: 0;
 }
 
@@ -39,19 +39,28 @@ h1 {
 .blob-wrapper { grid-area: 1 / 1 / 2 / 2; }
 .inputs-wrapper { grid-area: 1 / 2 / 2 / 3; }
 
+.blob-wrapper {
+    display: grid;
+    place-items: center;
+}
+
 .blob {
-    margin: 5em;
     width: var(--width);
     height: var(--height);
-    background: linear-gradient(90deg, rgba(255,0,236,1), rgb(106, 0, 255));
+    background: linear-gradient(140deg, #00aaff, #ff14e7);
     border-radius: var(--radius-1) var(--radius-2) var(--radius-3) var(--radius-4) / var(--radius-5) var(--radius-6) var(--radius-7) var(--radius-8);
 }
 
 .code-wrapper {
-    margin-right: 25%;
+    width: 80%;
+    font-size: 18px;
     border-radius: 5px;
     padding: .5em;
     background-color: #3e3e3e;
-    font-size: 15px;
 }
 
+
+.code, .height, .width {
+    text-align: left;
+    margin-left: 15px;
+}
