@@ -58,6 +58,7 @@ widthInput.addEventListener("input", (e) => {
  */
 function randomizeBlob() {
   handleRotation();
+  document.getElementById("blob").style.transition = '.75s ease';
   borderInputs.forEach((input, index) => {
     input.value = getRandomValue();
     updateRadius(input, index, input.value);
@@ -91,12 +92,11 @@ function handleRotation() {
 }
 
 /**
- * Generates a random integer between 20 and 90, ideal
- * values to maintain a somewhat organic shape
+ * Generates a random integer to use as a radius value
  * @returns integer
  */
 function getRandomValue() {
-  return Math.floor(Math.random() * (90 - 20) + 20);
+  return Math.floor(Math.random() * (100 - 1) + 1);
 }
 
 function updateText(type) {
