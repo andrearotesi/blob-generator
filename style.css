@@ -1,5 +1,3 @@
-@import './typography.css';
-
 :root {
     --width: 400px;
     --height: 300px;
@@ -14,6 +12,8 @@
 }
 
 html, body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
     height: auto;
     margin: 0;
 }
@@ -21,6 +21,17 @@ html, body {
 body {
     color: #ffffff;
     background: #1f1f1f;
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+    font-size: 50px!important;
+    margin: .5em 0 .75em 0;
+    user-select: none;
+}
+
+input {
+    cursor: pointer;
 }
 
 h1 {
