@@ -2,8 +2,8 @@
  * Collection of border range inputs
  */
 let borderInputs = [];
-document.querySelectorAll("input[type=range]").forEach((range) => {
-  if (!(range.id == "width" || range.id == "height")) {
+document.querySelectorAll('input[type=range]').forEach((range) => {
+  if (!(range.id == 'width' || range.id == 'height')) {
     borderInputs.push(range);
   }
 });
@@ -11,9 +11,9 @@ document.querySelectorAll("input[type=range]").forEach((range) => {
 /**
  * Generated CSS on page
  */
-const bordersCopy = document.querySelector(".code");
-const heightCopy = document.querySelector(".height");
-const widthCopy = document.querySelector(".width");
+const bordersCopy = document.querySelector('.code');
+const heightCopy = document.querySelector('.height');
+const widthCopy = document.querySelector('.width');
 
 let root = window.getComputedStyle(document.documentElement);
 let rotation = 0;
@@ -22,38 +22,38 @@ let heightInput = document.getElementById('height');
 let widthInput = document.getElementById('width');
 
 let radius = [
-  root.getPropertyValue("--radius-1"),
-  root.getPropertyValue("--radius-2"),
-  root.getPropertyValue("--radius-3"),
-  root.getPropertyValue("--radius-4"),
-  "/ " + root.getPropertyValue("--radius-5"),
-  root.getPropertyValue("--radius-6"),
-  root.getPropertyValue("--radius-7"),
-  root.getPropertyValue("--radius-8")
+  root.getPropertyValue('--radius-1'),
+  root.getPropertyValue('--radius-2'),
+  root.getPropertyValue('--radius-3'),
+  root.getPropertyValue('--radius-4'),
+  '/ ' + root.getPropertyValue('--radius-5'),
+  root.getPropertyValue('--radius-6'),
+  root.getPropertyValue('--radius-7'),
+  root.getPropertyValue('--radius-8')
 ];
 
 updateText('borders')
 borderInputs.forEach((input, index) => {
-  input.addEventListener("input", (e) => {
+  input.addEventListener('input', (e) => {
     updateRadius(input, index, e.target.value);
   });
 });
 
 updateText('height');
-heightInput.addEventListener("input", (e) => {
-  document.documentElement.style.setProperty("--height", e.target.value + 'px');
-  heightInput.setAttribute("data-value", e.target.value + "px");
+heightInput.addEventListener('input', (e) => {
+  document.documentElement.style.setProperty('--height', e.target.value + 'px');
+  heightInput.setAttribute('data-value', e.target.value + 'px');
   updateText('height');
 });
 
 updateText('width');
-widthInput.addEventListener("input", (e) => {
-  document.documentElement.style.setProperty("--width", e.target.value + 'px');
-  widthInput.setAttribute("data-value", e.target.value + "px");
+widthInput.addEventListener('input', (e) => {
+  document.documentElement.style.setProperty('--width', e.target.value + 'px');
+  widthInput.setAttribute('data-value', e.target.value + 'px');
   updateText('width');
 });
 
-document.getElementById("blob").style.transition = '.75s ease';
+document.getElementById('blob').style.transition = '.75s ease';
 
 /**
  * Updates all inputs with a random value
@@ -73,12 +73,12 @@ function randomizeBlob() {
  * @param value slider value
  */
  function updateRadius(input, index, value) {
-  document.documentElement.style.setProperty("--radius-" + (index + 1), value + "%");
-  input.setAttribute("data-value", value + "%");
+  document.documentElement.style.setProperty('--radius-' + (index + 1), value + '%');
+  input.setAttribute('data-value', value + '%');
   if (index === 4) {
-    radius[index] = "/ " + value + "%";
+    radius[index] = '/ ' + value + '%';
   } else {
-    radius[index] = value + "%";
+    radius[index] = value + '%';
   }
   updateText('borders');
 }
@@ -103,13 +103,26 @@ function getRandomValue() {
 function updateText(type) {
   switch(type) {
     case 'width':
-      widthCopy.innerHTML = "width: " + root.getPropertyValue("--width");
+      widthCopy.innerHTML = 'width: ' + root.getPropertyValue('--width');
       break;
     case 'height':
-      heightCopy.innerHTML = "height: " + root.getPropertyValue("--height");
+      heightCopy.innerHTML = 'height: ' + root.getPropertyValue('--height');
       break;
     case 'borders':
-      bordersCopy.innerHTML = "border-radius: " + radius.join(' ') + ";";
+      bordersCopy.innerHTML = 'border-radius: ' + radius.join(' ') + ';';
       break;
   }
+}
+
+/**
+ * Copies the generated CSS to clipboard
+ */
+function copyToClipboard() {
+  navigator.clipboard.writeText(
+    '.blob {' 
+    + heightCopy.innerHTML + '\n' 
+    + widthCopy.innerHTML + '\n' 
+    + bordersCopy.innerHTML + '\n'
+    + '}'
+  );
 }
