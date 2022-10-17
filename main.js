@@ -125,4 +125,8 @@ function copyToClipboard() {
     + bordersCopy.innerHTML + '\n'
     + '}'
   );
+  document.getElementById('copy').innerHTML = 'copied!';
+  setTimeout(() => {
+    document.getElementById('copy').innerHTML = 'copy to clipboard';
+  }, 1000);
 }
