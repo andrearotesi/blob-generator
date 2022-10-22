@@ -9,6 +9,7 @@ let borderInputs = document.querySelectorAll('input[type=range]');
 const bordersCopy = document.querySelector('.code');
 
 let root = window.getComputedStyle(document.documentElement);
+
 let rotation = 0;
 
 let radius = [
