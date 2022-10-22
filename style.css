@@ -41,14 +41,14 @@ h1 {
 }
 
 .parent {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 10px;
+    gap: 1rem;
 }
 
-.blob-wrapper { grid-area: 1 / 1 / 2 / 2; }
-.inputs-wrapper { grid-area: 1 / 2 / 2 / 3; }
+@media (min-width: 900px) {
+    .parent { grid-template-columns: repeat(2, 1fr); }
+}
 
 .blob-wrapper {
     display: grid;
