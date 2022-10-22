@@ -19,12 +19,6 @@
 
         <!-- INPUTS / RANDOM / CODE -->
         <div class="inputs-wrapper">
-            <section></section>
-            <h3>width:</h3>
-            <input type="range" id="width" min="100" max="500" step="10" value="400" data-value="400px">
-            <h3>height:</h3>
-            <input type="range" id="height" min="100" max="500" step="10" value="300" data-value="300px">
-
             <h3>borders:</h3>
             <div>
                 <input type="range" id="radius1" min="0" max="100" step="1" value="70" data-value="70%">
@@ -40,16 +34,18 @@
                 <input type="range" id="radius8" min="0" max="100" step="1" value="40" data-value="40%">
             </div>
 
-            <span id="casino" class="material-symbols-outlined" onclick="randomizeBlob()">
+            <div>
+                <span id="casino" class="material-symbols-outlined" onclick="randomizeBlob()">
                 casino
-            </span>
+                </span>
+            </div>
 
             <div class="code-wrapper">
-                .blob {
+                <section class="code-section">
+                    .blob {
                     <div class="code"></div>
-                    <div class="height"></div>
-                    <div class="width"></div>
-                }
+                    }
+                </section>
                 <div class="copy-wrapper">
                    <u id="copy" onclick="copyToClipboard()">copy to clipboard</u> 
                 </div>
